@@ -5,7 +5,15 @@ terraform {
       version = "3.114.0"
     }
   }
+  
+backend "azurerm" {
+    resource_group_name = "storageresgroup"
+    storage_account_name = "taskboardstoragehelix"
+    container_name = "taskboardcontainer"
+    key = "terraform.tfstate"
+  }
 }
+
 
 provider "azurerm" {
   skip_provider_registration = true
